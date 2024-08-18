@@ -13,41 +13,50 @@ export default function Home() {
   // Increase the conversion factor for a larger circle
   const diameterInPixels = diameter * 5; // Adjusting the conversion factor to 5 for a larger circle
 
+  // Calculate the circumference of the circle
+  const circumference = (Math.PI * diameter).toFixed(2); // Circumference in mm
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar /> {/* Include the Navbar at the top */}
 
       <div className="flex flex-col items-center justify-center flex-grow p-4 text-center">
-        <h1 className="text-2xl md:text-3xl mb-6 font-bold">Ring Size Calculator</h1>
+        <h1 className="text-2xl md:text-3xl mb-6 font-bold fixed top-16">Ring Size Calculator</h1> {/* Fixed title */}
 
-        <div className="flex flex-col items-center justify-center space-y-4 w-full max-w-md mx-auto">
-          {/* Circle with only a border */}
-          <div
-            className="border-4 border-blue-500 rounded-full flex items-center justify-center"
-            style={{
-              width: `${diameterInPixels}px`,
-              height: `${diameterInPixels}px`,
-            }}
-          >
-            {/* Diameter label inside the circle */}
-            <p className="text-sm md:text-lg font-medium text-gray-700">
-              {diameter.toFixed(2)} mm
-            </p>
+        {/* Card-like div containing the circle */}
+        <div className="bg-white shadow-lg rounded-lg p-8 mt-24"> {/* Added card-like background */}
+          <div className="relative w-full flex justify-center"> {/* Centered and positioned div */}
+            <div
+              className="border-4 border-blue-500 rounded-full flex items-center justify-center"
+              style={{
+                width: `${diameterInPixels}px`,
+                height: `${diameterInPixels}px`,
+              }}
+            >
+              {/* Diameter label inside the circle */}
+              <p className="text-sm md:text-lg font-medium text-gray-700">
+                {diameter.toFixed(2)} mm
+              </p>
+            </div>
           </div>
+        </div>
 
-          {/* Slider */}
+        {/* Fixed slider */}
+        <div className="fixed bottom-16 w-full max-w-md mx-auto p-4"> {/* Fixed position for the slider */}
           <input
             type="range"
-            min="18"  // Set the minimum value to 18 mm
-            max="40"  // Set the maximum value to 40 mm
+            min="14"  // Set the minimum value to 14 mm
+            max="35"  // Set the maximum value to 35 mm
             value={diameter}
             onChange={handleSliderChange}
             className="w-full"
           />
         </div>
 
+        {/* Display the circumference below the circle */}
         <div className="mt-4">
           <p className="text-sm md:text-lg font-medium">Current Diameter: {diameter} mm</p>
+          <p className="text-sm md:text-lg font-medium">Circumference: {circumference} mm</p>
         </div>
       </div>
     </div>
