@@ -9,7 +9,7 @@ export default function Home() {
   const [adLoaded, setAdLoaded] = useState(false);
 
   const handleSliderChange = (e: { target: { value: any; }; }) => {
-    setDiameter(Number(e.target.value)); // Convert the value to a number
+    setDiameter(Number(e.target.value)); // Update diameter state with slider value
   };
 
   useEffect(() => {
@@ -67,18 +67,6 @@ export default function Home() {
             <p className="text-sm md:text-lg font-medium">Current Diameter: {diameter} mm</p>
             <p className="text-sm md:text-lg font-medium">Circumference: {circumference} mm</p>
           </div>
-
-          {/* Slider */}
-          <div className="fixed bottom-16 w-full max-w-md mx-auto p-4">
-            <input
-              type="range"
-              min="14"
-              max="35"
-              value={diameter}
-              onChange={handleSliderChange}
-              className="w-full"
-            />
-          </div>
         </div>
 
         {/* Right Ad */}
@@ -87,6 +75,18 @@ export default function Home() {
             <AdBanner dataAdSlot="9406794419" dataAdFormat="auto" dataFullWidthResponsive={true} />
           )}
         </div>
+      </div>
+
+      {/* Slider */}
+      <div className=" bottom-24 w-full max-w-md mx-auto p-4">
+        <input
+          type="range"
+          min="14"
+          max="35"
+          value={diameter}
+          onChange={handleSliderChange}
+          className="w-full"
+        />
       </div>
 
       {/* Ad below slider for mobile */}
