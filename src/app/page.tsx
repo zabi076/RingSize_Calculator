@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Navbar from '../app/components/Navbar';
+import AdBanner from './components/AdBanner';
 
 export default function Home() {
   const [diameter, setDiameter] = useState(20); // Initial diameter in mm
@@ -17,12 +18,14 @@ export default function Home() {
   const circumference = (Math.PI * diameter).toFixed(2); // Circumference in mm
 
   return (
+    
     <div className="min-h-screen flex flex-col">
+  
       <Navbar /> {/* Include the Navbar at the top */}
-
+ 
       <div className="flex flex-col items-center justify-center flex-grow p-4 text-center">
         <h1 className="text-2xl md:text-3xl mb-6 font-bold fixed top-16">Ring Size Calculator</h1> {/* Fixed title */}
-
+      
         {/* Card-like div containing the circle */}
         <div className="bg-white shadow-lg rounded-lg p-8 mt-24"> {/* Added card-like background */}
           <div className="relative w-full flex justify-center"> {/* Centered and positioned div */}
@@ -40,9 +43,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-
         {/* Fixed slider */}
         <div className="fixed bottom-16 w-full max-w-md mx-auto p-4"> {/* Fixed position for the slider */}
+     
           <input
             type="range"
             min="14"  // Set the minimum value to 14 mm
@@ -57,6 +60,7 @@ export default function Home() {
         <div className="mt-4">
           <p className="text-sm md:text-lg font-medium">Current Diameter: {diameter} mm</p>
           <p className="text-sm md:text-lg font-medium">Circumference: {circumference} mm</p>
+          <AdBanner dataAdSlot="9406794419" dataAdFormat="auto" dataFullWidthResponsive={true}/>  
         </div>
       </div>
     </div>
