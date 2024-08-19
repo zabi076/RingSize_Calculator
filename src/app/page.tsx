@@ -18,9 +18,7 @@ export default function Home() {
   const circumference = (Math.PI * diameter).toFixed(2); // Circumference in mm
 
   return (
-    
     <div className="min-h-screen flex flex-col">
-  
       <Navbar /> {/* Include the Navbar at the top */}
  
       <div className="flex flex-col items-center justify-center flex-grow p-4 text-center">
@@ -43,9 +41,20 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
+        {/* Display the circumference below the circle */}
+        <div className="mt-4">
+          <p className="text-sm md:text-lg font-medium">Current Diameter: {diameter} mm</p>
+          <p className="text-sm md:text-lg font-medium">Circumference: {circumference} mm</p>
+        </div>
+
+        {/* Resized AdBanner positioned above the slider */}
+        <div className="w-full max-w-md mx-auto p-4 mt-4">
+          <AdBanner dataAdSlot="9406794419" dataAdFormat="auto" dataFullWidthResponsive={true} />
+        </div>
+
         {/* Fixed slider */}
         <div className="fixed bottom-16 w-full max-w-md mx-auto p-4"> {/* Fixed position for the slider */}
-     
           <input
             type="range"
             min="14"  // Set the minimum value to 14 mm
@@ -54,13 +63,6 @@ export default function Home() {
             onChange={handleSliderChange}
             className="w-full"
           />
-        </div>
-
-        {/* Display the circumference below the circle */}
-        <div className="mt-4">
-          <p className="text-sm md:text-lg font-medium">Current Diameter: {diameter} mm</p>
-          <p className="text-sm md:text-lg font-medium">Circumference: {circumference} mm</p>
-          <AdBanner dataAdSlot="9406794419" dataAdFormat="auto" dataFullWidthResponsive={true}/>  
         </div>
       </div>
     </div>
