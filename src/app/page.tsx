@@ -33,7 +33,7 @@ export default function Home() {
 
       <div className="flex flex-grow p-4">
         {/* Left Ad */}
-        <div className="hidden lg:flex justify-center items-center w-1/6">
+        <div className="hidden lg:flex justify-center items-center w-1/6 ">
           {adLoaded && (
             <AdBanner dataAdSlot="9406794419" dataAdFormat="auto" dataFullWidthResponsive={true} />
           )}
@@ -70,7 +70,7 @@ export default function Home() {
         </div>
 
         {/* Right Ad */}
-        <div className="hidden lg:flex justify-center items-center w-1/6">
+        <div className="hidden lg:flex justify-center items-center w-1/6 ">
           {adLoaded && (
             <AdBanner dataAdSlot="9406794419" dataAdFormat="auto" dataFullWidthResponsive={true} />
           )}
@@ -90,7 +90,7 @@ export default function Home() {
       </div>
 
       {/* Ad below slider for mobile */}
-      <div className="lg:hidden flex justify-center items-center mt-4">
+      <div className="lg:hidden flex justify-center items-center mt-4 bg-black">
         {adLoaded && (
           <AdBanner dataAdSlot="9406794419" dataAdFormat="auto" dataFullWidthResponsive={true} />
         )}
